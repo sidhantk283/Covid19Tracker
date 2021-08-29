@@ -1,0 +1,43 @@
+<div class="jumbotron text-center bg-white">
+    <h1 class="display-3">COVID19 Tracker</h1>
+    <hr class="my-2">
+    <p class="lead">Using Angular</p>
+
+    <app-dashboard [totalActive]='totalActive' [totalConfirm]='totalConfirm' [totalRecovered]='totalRecovered' [totalDeaths]='totalDeaths'></app-dashboard>
+
+    <div class="row">
+        <div class="ui form">
+            <div class="inline fields">
+              <label>Select Cases :</label>
+              <div class="field">
+                <div class="ui radio checkbox">
+                  <input type="radio" #c value="c" (click)="updateChart(c)" name="frequency" checked="checked">
+                  <label for="c">Confirmed</label>
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui radio checkbox">
+                  <input type="radio" #r value="r" (click)="updateChart(r)" name="frequency">
+                  <label for="r">Recovered</label>
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui radio checkbox">
+                  <input type="radio" #d value="d" (click)="updateChart(d)" name="frequency">
+                  <label for="d">Deaths</label>
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui radio checkbox">
+                  <input type="radio" #a value="a" (click)="updateChart(a)" name="frequency">
+                  <label for="a">Active</label>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6"><google-chart #piechart [data]="pieChart"></google-chart></div>
+        <div class="col-sm-6"><google-chart #colchart [data]="columnChart"></google-chart></div>
+      </div>
+</div>
